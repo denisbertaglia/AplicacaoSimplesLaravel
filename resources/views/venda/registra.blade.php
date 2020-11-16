@@ -6,13 +6,14 @@
     <div class="text-center row py-5 ">
         <h1 class="py-2">Registrar venda</h1>
     </div>
-    <form class="row ">
+    <form class="row" id="fomrRegistrar" method="POST" target="" action="{{route('venda.realizar.registro')}}">
+        @csrf
         <div class="col-8 col-md-10 col-form-label">
             <label for="search" class="visually-hidden">Procurar</label>
             <input type="text" class="form-control" id="search" placeholder="Procurar">
         </div>
         <div class="col-4 col-md-2 col-form-label d-grid ">
-            <button type="button" class="btn btn-secondary mb-3"  data-toggle="modal" data-target="#modalBuscaProduto">Procurar</button>
+            <button type="button" class="btn btn-secondary mb-3"  data-toggle="modal" data-target="#modalBuscaProduto" data-url-find="{{route('produto.recupera')}}">Procurar</button>
         </div>
         <div class=" col-12 table-responsive">
             <table class="table">
@@ -25,43 +26,7 @@
                         <td></td>
                     </tr>
                 </thead>
-                <tbody id="lista-produtos">
-                    <tr class='produto' data-id='1' data-preco='100.00'>
-                        <td>2322</td>
-                        <td>Tinta</td>
-                        <td>Coral</td>
-                        <td>120,44</td>
-                        <td>
-                            <button type='button' data-id='1' class='produto-remover btn btn-sm btn-danger'>Excluir</button>
-                        </td>
-                    </tr>
-                    <tr class='produto' data-id='2' data-preco='100.00'>
-                        <td>2322</td>
-                        <td>Tinta</td>
-                        <td>Coral</td>
-                        <td>120,44</td>
-                        <td>
-                            <button type='button' data-id='2' class='produto-remover btn btn-sm btn-danger'>Excluir</button>
-                        </td>
-                    </tr>
-                    <tr class='produto' data-id='3' data-preco='100.00'>
-                        <td>2322</td>
-                        <td>Tinta</td>
-                        <td>Coral</td>
-                        <td>120,44</td>
-                        <td>
-                            <button type='button' data-id='3' class='produto-remover btn btn-sm btn-danger'>Excluir</button>
-                        </td>
-                    </tr>
-                    <tr class='produto' data-id='4' data-preco='100.00'>
-                        <td>2322</td>
-                        <td>Tinta</td>
-                        <td>Coral</td>
-                        <td>120,44</td>
-                        <td>
-                            <button type='button' data-id='4' class='produto-remover btn btn-sm btn-danger'>Excluir</button>
-                        </td>
-                    </tr>
+                <tbody id="lista-produtos" data-url-find-one="{{route('produto.recupera')}}">
                 </tbody>
             <tfoot>
                 <tr>
@@ -76,33 +41,33 @@
         <div class="row mb-2">
             <label for="cep" class="col-12 col-sm-1 col-form-label" >CEP</label>
             <div class="col-12 col-sm-5">
-                <input type="text" class="form-control" id="cep" maxlength="8" placeholder="00000000" required>
+                <input type="text" class="form-control" id="cep" name="cep" maxlength="8" placeholder="00000000" required>
             </div>
         </div>
         <div class="w-100 d-none d-sm-block"></div>
         <div class="row mb-2">
             <label for="rua" class="col-12 col-sm-1 col-form-label" >Rua</label>
             <div class="col-12 col-sm-6">
-                <input type="text" class="form-control" id="rua" placeholder="Rua Galvão Bueno" required>
+                <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua Galvão Bueno" required>
             </div>
             <label for="numero" class="col-12 col-sm-2 col-form-label" >Número</label>
             <div class="col-12 col-sm-3">
-                <input type="text" class="form-control" id="numero" placeholder="130" required>
+                <input type="text" class="form-control" id="numero" name="numero" placeholder="130" required>
             </div>
         </div>
         <div class="row mb-2">
             <label for="bairro" class="col-12 col-sm-12 col-md-1 col-form-label" >Bairro</label>
             <div class="col-12 col-sm-12 col-md-3">
-                <input type="text" class="form-control" id="bairro" placeholder="Boa Vista" required>
+                <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Boa Vista" required>
             </div>
             <label for="cidade" class="col-12 col-sm-12 col-md-1 col-form-label" >Cidade</label>
             <div class="col-12 col-sm-12 col-md-3">
-                <input type="text" class="form-control" id="cidade" placeholder="São João da Fontes" required>
+                <input type="text" class="form-control" id="cidade" name="cidade" placeholder="São João da Fontes" required>
             </div>
             
             <label for="estado" class="col-12 col-sm-12 col-md-1 col-form-label" >Estado</label>
             <div class="col-12 col-sm-12 col-md-3">
-                <select class="form-select" id="estado" aria-label="Default select example" required>
+                <select class="form-select" id="estado" name="estado" aria-label="Default select example" required>
                     <option selected value="">Estado</option>
                     @foreach ($estados as $estado)
                         <option value="{{$estado->sigla}}">{{$estado->nome}}</option>
@@ -112,7 +77,7 @@
         </div>
         <div class="row mb-5 py-2 gap-2  justify-content-center">
             <div class="col col-sm-3 mx-auto d-grid">
-                <button  type="submit" class="btn btn-primary " >Registrar</button>
+                <button  type="submit" class="btn btn-primary" >Registrar</button>
             </div>
         </div>
     </form>
@@ -137,70 +102,7 @@
                             <td></td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='1' class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='2' class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='3' class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='4' class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='5'  class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='6' class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2322</td>
-                            <td>Tinta</td>
-                            <td>Coral</td>
-                            <td>120,44</td>
-                            <td>
-                                <button type="button" data-id='7' class="produto-escolher btn btn-sm btn-success">Escolher</button>
-                            </td>
-                        </tr>
+                    <tbody class="listaBuscaProduto">
                     </tbody>
                 </table>
             </div>

@@ -31,7 +31,6 @@ class ProdutosTest extends TestCase
                 'preco',
                 'fornecedores' =>[
                     [
-                        'id',
                         'nome',
                     ]
                 ]
@@ -53,9 +52,9 @@ class ProdutosTest extends TestCase
             "nome"=>"Massa Corrida 25 kg",
             "preco"=>"69.99",
             "fornecedores"=>[
-                ["id"=>1,"nome"=> "Coral"],
-                ["id"=>2,"nome"=>"Suvinil"],
-                ["id"=>3,"nome"=>"Sherwin Williams"]
+                ["nome"=> "Coral"],
+                ["nome"=>"Suvinil"],
+                ["nome"=>"Sherwin Williams"]
                 ]],
             ]);
         $response->assertStatus(200);

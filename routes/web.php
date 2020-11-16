@@ -21,5 +21,8 @@ Route::get('/', [ VendasController::class, 'index' ])
 Route::get('/historico', [ VendasController::class, 'historico' ])
     ->name("venda.historico");
     
-Route::get('/produtos', [ ProdutoController::class, 'recuperaProduto' ])
+Route::get('/produto/{idProduto?}', [ ProdutoController::class, 'recuperaProdutos' ])
     ->name("produto.recupera");
+    
+Route::post('/registroVenda', [ VendasController::class, 'registro' ])
+    ->name("venda.realizar.registro");

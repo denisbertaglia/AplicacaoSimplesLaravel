@@ -7,6 +7,7 @@
         <title>@yield('title')</title>
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous" />
+        <base href="{{url('/')}}" target="_blank">
     </head>
   <body>
 

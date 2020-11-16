@@ -21,7 +21,7 @@ class Fornecedor extends Model
     
     public $timestamps = false;
     
-    protected $hidden = ['pivot'];
+    protected $hidden = ['pivot','id'];
 
     public function produto()
     {

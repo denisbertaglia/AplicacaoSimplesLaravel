@@ -11,7 +11,11 @@ class VendasController extends Controller
         $estados = Estado::get();
         return view("venda.registra", compact('estados'));
     }
-
+    
+    public function registro(Request $request){
+        dd($request->all());
+    }
+    
     public function historico(){
         return view("venda.historico");
     }
