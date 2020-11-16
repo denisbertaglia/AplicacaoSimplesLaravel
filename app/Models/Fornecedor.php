@@ -20,4 +20,12 @@ class Fornecedor extends Model
     ];
     
     public $timestamps = false;
+    
+    protected $hidden = ['pivot'];
+
+    public function produto()
+    {
+        return $this->belongsToMany('App\Models\Produto','produto_fornecedor');
+    }
+    
 }
