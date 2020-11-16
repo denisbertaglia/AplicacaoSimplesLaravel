@@ -3,10 +3,11 @@
 namespace App\Service;
 
 use App\Models\Produto;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProdutoService {
 
-    public function recuperaProdutos(string $nomeProduto ='')
+    public function recuperaProdutosPorNome(string $nomeProduto ='')
     {
         if(!empty($nomeProduto)){
             $produto =  Produto::with('fornecedores')->where('nome','like', "%{$nomeProduto}%")
@@ -25,7 +26,11 @@ class ProdutoService {
             
             return $produto;
         }
-
         return [];
+    }
+
+    public function recuperaProdutoPorIds($ids) :Collection
+    {
+        return Produto::with('fornecedores')->whereIn('id',$ids)->get();
     }
  }

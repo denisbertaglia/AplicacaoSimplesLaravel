@@ -25,4 +25,10 @@ Route::get('/produto/{idProduto?}', [ ProdutoController::class, 'recuperaProduto
     ->name("produto.recupera");
     
 Route::post('/registroVenda', [ VendasController::class, 'registro' ])
-    ->name("venda.realizar.registro");
+->name("venda.realizar.registro");
+
+Route::get('/venda/{idVenda}', [ VendasController::class, 'resgatarVenda' ])
+    ->name("venda.resgatar");
+
+
+    

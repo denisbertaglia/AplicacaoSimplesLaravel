@@ -46,9 +46,9 @@
         </div>
         <div class="w-100 d-none d-sm-block"></div>
         <div class="row mb-2">
-            <label for="rua" class="col-12 col-sm-1 col-form-label" >Rua</label>
+            <label for="endereco" class="col-12 col-sm-1 col-form-label" >Endereço</label>
             <div class="col-12 col-sm-6">
-                <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua Galvão Bueno" required>
+                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua Galvão Bueno" required>
             </div>
             <label for="numero" class="col-12 col-sm-2 col-form-label" >Número</label>
             <div class="col-12 col-sm-3">

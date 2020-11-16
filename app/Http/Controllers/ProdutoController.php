@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+    public ProdutoService $produtoService;
+    
     public function __construct(ProdutoService $produtoService)
     {
         $this->produtoService = $produtoService;
@@ -19,7 +21,7 @@ class ProdutoController extends Controller
         }
         
         $pesquisa = (is_null($request->pesquisa))? '': $request->pesquisa ;
-        $produtos = $this->produtoService->recuperaProdutos($pesquisa);
+        $produtos = $this->produtoService->recuperaProdutosPorNome($pesquisa);
 
         return $produtos;
     }

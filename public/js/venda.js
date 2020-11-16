@@ -4,10 +4,12 @@
     modalBuscaProduto.addEventListener('show.bs.modal', function (event) {
         let search = document.querySelector('#search');
         let url = event.explicitOriginalTarget.dataset.urlFind;
-            fetch(url, {
+            fetch(url+'?'+ new URLSearchParams({
+                pesquisa:search.value
+            }), {
                     headers: {
                         'Content-Type': 'application/json',
-                    },
+                    }
             }).then( function(response ){
                 return response.json();
             }).then( function(response ){
@@ -88,12 +90,12 @@
                 if (response.erro) {
                     throw Error(response);
                 }
-                qSelector('#rua').value = response.logradouro;
+                qSelector('#endereco').value = response.logradouro;
                 qSelector('#bairro').value = response.bairro;
                 qSelector('#cidade').value = response.localidade;
                 qSelector('#estado').value = response.uf;
             }).catch(function(e){
-                qSelector('#rua').value = '';
+                qSelector('#endereco').value = '';
                 qSelector('#bairro').value = '';
                 qSelector('#cidade').value = '';
                 qSelector('#estado').value = '';
