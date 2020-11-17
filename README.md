@@ -4,6 +4,8 @@
 
 Aplicação de Demonstracao  Laravel(PHP), MySQL, HTML, CSS e JavaScript.
 
+Desenvolvido com PHP 7.4.6 e MariaDB 10.1.28.
+
 
 ## Como Testar o Projeto
 Cria um arquivo .env minímo:
