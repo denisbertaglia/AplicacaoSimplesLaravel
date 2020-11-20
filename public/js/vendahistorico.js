@@ -14,8 +14,6 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
         }).then( function(response ){
             return response.json();
         }).then( function(response ){
-            console.log(qSelector('#detalhes .modal-body'));
-            console.log(response);
             let modalBody = qSelector('#detalhes .modal-body');
             qSelector('#detalhes .cep').textContent = response.cep;
             qSelector('#detalhes .endereco').textContent = response.endereco;
