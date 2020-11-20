@@ -7,12 +7,12 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto mb-2 mb-md-0">
             <li class="nav-item">
-                <a class="nav-link"  target="" href="{{ route("venda.registro")}}">
+                <a class="nav-link" href="{{ route("venda.registro")}}">
                 Registro de Venda
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" target=""  href="{{ route("venda.historico")}}">
+                <a class="nav-link" href="{{ route("venda.historico")}}">
                 Histórico de Venda
                 </a>
             </li>
