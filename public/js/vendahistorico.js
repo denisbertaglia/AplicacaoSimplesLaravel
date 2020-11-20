@@ -1,6 +1,6 @@
 let exampleModal = qSelector('#detalhes');
 exampleModal.addEventListener('show.bs.modal', function (event) {
-    let url = event.explicitOriginalTarget.dataset.singleUrl;
+    let url = event.relatedTarget.dataset.singleUrl;
         qSelector('#detalhes .cep').textContent = "..";
         qSelector('#detalhes .endereco').textContent = "..";
         qSelector('#detalhes .numero').textContent = "..";
@@ -23,7 +23,6 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
             qSelector('#detalhes .bairro').textContent = response.bairro;
             qSelector('#detalhes .cidade').textContent = response.cidade;
             qSelector('#detalhes .estado').textContent = response.estado;
-
             qSelector('#detalhes .modal-venda-items').textContent =''; 
             let containerItems = qSelector('#detalhes .modal-venda-items'); 
             containerItems.textContent =''; 
@@ -44,9 +43,6 @@ exampleModal.addEventListener('show.bs.modal', function (event) {
                         <strong>Preco:</strong> ${preco}
                     </div>
                 </div>  `);
-
             });
-
-
         });
 })

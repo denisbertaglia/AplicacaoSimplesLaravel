@@ -1,9 +1,8 @@
     let modalBuscaProduto = qSelector('#modalBuscaProduto');
     let cepInput = qSelector("#cep");
-
     modalBuscaProduto.addEventListener('show.bs.modal', function (event) {
         let search = document.querySelector('#search');
-        let url = event.explicitOriginalTarget.dataset.urlFind;
+        let url = event.relatedTarget.dataset.urlFind;
             fetch(url+'?'+ new URLSearchParams({
                 pesquisa:search.value
             }), {
@@ -30,14 +29,12 @@
             }
         );
     })
-
     modalBuscaProduto.addEventListener('click', function (event) {
-        let id = event.explicitOriginalTarget.dataset.id;
+        let id = event.target.dataset.id;
         if( hasClass(event.target,'produto-escolher')){
             incluirProduto(id);
         }
     });
-
     let listaProdutos= qSelector("#lista-produtos");
     window.addEventListener("load",somaProdutos);
     function somaProdutos() {
@@ -68,7 +65,6 @@
             modalBuscaProduto.toggle();
             somaProdutos();
         });
-
     }
     function removeProduto(id) {
         qSelectorAll("#lista-produtos .produto").forEach(function (element) {
@@ -102,7 +98,6 @@
             });
         }
     });
-
     qSelector('#fomrRegistrar').addEventListener('submit', function (event) {
         event.preventDefault();
         let hasProduto = qSelector('#fomrRegistrar .produto');
